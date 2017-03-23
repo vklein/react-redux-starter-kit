@@ -2,6 +2,10 @@
   "entry": {
     "main": [
       "../src/main.jsx"
+    ],
+    "vendor": [
+      "react",
+      "react-dom"
     ]
   },
   "browsers": [

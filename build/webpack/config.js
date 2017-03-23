@@ -14,13 +14,14 @@ const rootPath = (userConfig.paths && userConfig.paths.root)
     ? userConfig.paths.root
     : process.cwd();
 
+
 const config = merge({
     copy: 'images/**/*',
     proxyUrl: 'http://localhost:3000',
     cacheBusting: '[name]',
     paths: {
         root: rootPath,
-        js: path.resolve(rootPath, 'src'),
+        assets: path.resolve(rootPath, 'src'),
         dist: path.resolve(rootPath, 'dist'),
     },
     enabled: {

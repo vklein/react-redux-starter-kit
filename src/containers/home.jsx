@@ -2,7 +2,7 @@ import * as dataActions from "actions/data";
 import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {ReactComponent, Portal, BannerMessage, Icon, Button} from "apparena-patterns-react";
+import {ReactComponent} from "apparena-patterns-react";
 import Header from "components/header";
 
 class HomeContainer extends ReactComponent {

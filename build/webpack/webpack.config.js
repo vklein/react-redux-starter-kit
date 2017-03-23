@@ -14,7 +14,6 @@ const mergeWithConcat = require('./util/mergeWithConcat');
 const config = require('./config');
 
 const assetsFilenames = (config.env.production) ? '[name].min' : '[name]';
-
 // multiple extract instances
 let extractAssets = new ExtractTextPlugin({
     filename: `styles/${assetsFilenames}.css`,
@@ -157,14 +156,11 @@ let webpackConfig = {
     resolve: {
         extensions: ['.js', '.jsx', '.es6'],
         modules: [
-            config.paths.js,
+            config.paths.assets,
             'node_modules',
             'bower_components',
         ],
         enforceExtension: false,
-    },
-    externals: {
-        jquery: 'jQuery',
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -190,13 +186,8 @@ let webpackConfig = {
         extractAssets,
         extractComponentCSS,
         extractComponentMJML,
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery',
-            Tether: 'tether',
-            'window.Tether': 'tether',
-        }),
+        /*new webpack.ProvidePlugin({
+        }),*/
         new webpack.LoaderOptionsPlugin({
             // minimize: true,
             debug: config.enabled.watcher,

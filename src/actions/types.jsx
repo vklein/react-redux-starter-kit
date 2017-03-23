@@ -1,4 +1,4 @@
 export default {
     /** Actions **/
-    activateAdminMode: 'ACTIVATE_ADMIN_MODE',
+    addData: 'ADD_DATA',
 }
