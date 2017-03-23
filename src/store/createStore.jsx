@@ -3,6 +3,8 @@ import thunk from "redux-thunk";
 import routerMiddleware from "react-router-redux/lib/middleware";
 import createLogger from "redux-logger";
 import reducer from "../reducers";
+import {saveState} from "helpers/localStorage";
+import throttle from "lodash/throttle";
 
 export default (initialState = {}, hashHistory) => {
     // ======================================================
@@ -32,6 +34,25 @@ export default (initialState = {}, hashHistory) => {
         initialState,
         enhancers
     );
+
+    // ======================================================
+    // Save Partials of Store to LocalStorage
+    // ======================================================
+
+    const localStorage = false;
+
+    if (localStorage) {
+        // Subscripe to store
+        store.subscribe(throttle(() => {
+            saveState({
+                data: store.getState().data
+            });
+        }), 1000);
+    }
+
+    // ======================================================
+    // Hot Reload
+    // ======================================================
 
     if (module.hot) {
         // Enable Webpack hot module replacement for reducers
