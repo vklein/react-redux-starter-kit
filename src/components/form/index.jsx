@@ -4,15 +4,17 @@ import styles from "./index.scss";
 
 function Form({data, handleInputChange}) {
     return (
-        <FormContainer className={styles.header}>
-            <FormGroup label="Name">
-                <Input
-                    onChange={handleInputChange}
-                    defaultValue={data.name}
-                    name="name"
-                />
-            </FormGroup>
-        </FormContainer>
+        <div className={styles.header}>
+            <FormContainer >
+                <FormGroup label="Name">
+                    <Input
+                        onChange={handleInputChange}
+                        defaultValue={data.name}
+                        name="name"
+                    />
+                </FormGroup>
+            </FormContainer>
+        </div>
     )
 }
 

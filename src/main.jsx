@@ -7,6 +7,7 @@ import routes from "./router/routes";
 import AppContainer from "containers/appContainer";
 import createStore from "store/createStore";
 import {loadState} from "helpers/localStorage";
+import "containers/index.scss"
 
 // ========================================================
 // Store Instantiation

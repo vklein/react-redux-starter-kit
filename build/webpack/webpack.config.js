@@ -76,38 +76,6 @@ let webpackConfig = {
             },
             {
                 test: /\.scss$/,
-                include: config.paths.assets,
-                loader: extractAssets.extract({
-                    fallback: 'style-loader',
-                    publicPath: '../',
-                    loader: [
-                        {
-                            loader: 'css-loader?modules&importLoaders=1',
-                            options: {
-                                sourceMap: true
-                            }
-                        },
-                        {
-                            loader: 'postcss-loader'
-                        },
-                        {
-                            loader: 'resolve-url-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        },
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        }
-                    ],
-                }),
-            },
-            {
-                test: /\.scss$/,
-                exclude: config.paths.assets,
                 loader: extractComponentCSS.extract({
                     fallback: 'style-loader',
                     publicPath: '../',
@@ -187,7 +155,7 @@ let webpackConfig = {
         extractComponentCSS,
         extractComponentMJML,
         /*new webpack.ProvidePlugin({
-        }),*/
+         }),*/
         new webpack.LoaderOptionsPlugin({
             // minimize: true,
             debug: config.enabled.watcher,

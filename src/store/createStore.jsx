@@ -39,7 +39,7 @@ export default (initialState = {}, hashHistory) => {
     // Save Partials of Store to LocalStorage
     // ======================================================
 
-    const localStorage = false;
+    const localStorage = true;
 
     if (localStorage) {
         // Subscripe to store

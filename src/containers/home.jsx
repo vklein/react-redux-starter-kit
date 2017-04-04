@@ -2,32 +2,31 @@ import * as dataActions from "actions/data";
 import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {ReactComponent} from "apparena-patterns-react";
-import Form from "components/form";
+import {ReactComponent, Button} from "apparena-patterns-react";
+import {Link} from "react-router";
 
 class HomeContainer extends ReactComponent {
     getInitState() {
-        this.handleInputChange = ::this.handleInputChange;
         return {
             data: {}
         };
     }
 
-    handleInputChange(e) {
-        const name = e.target.name;
-        const data = {
-            [name]: e.target.value
-        };
-        this.props.addData(data);
-    }
-
     render() {
         const {data} = this.props;
         return (
-            <Form
-                data={data}
-                handleInputChange={this.handleInputChange}
-            />
+            <div>
+                <div>
+                    <Link to="/">Home</Link>
+                    <Link to="form">Form</Link>
+                </div>
+                {this.props.children}
+                <div>
+                    <Button type="primary">
+                        Test
+                    </Button>
+                </div>
+            </div>
         )
     }
 }
